@@ -1,0 +1,35 @@
+
+<div class="page-header">
+  <h1>Lenguajes</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th> ID </th>
+      <th> Nombre </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @lenguages.each do |language| %>
+      <tr>
+        <td><%= link_to language.id, language_path(language) %></td>
+        <td><%= language.name %></td>
+        <td>
+          <%= link_to "Editar",
+                      edit_language_path(language), :class => 'btn btn-default btn-xs' %>
+        <td>
+          <%= link_to "Eliminar",
+                      language_path(language),
+                      :method => :delete,
+                      :data => { :confirm => "¿Realmente estás seguro de borrar?" },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Nuevo Lenguaje",
+            new_language_path,
+            :class => 'btn btn-primary' %>

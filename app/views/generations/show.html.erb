@@ -1,21 +1,16 @@
-<%- model_class = Generation -%>
+
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1><%= @generation.name %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dt><strong>Nombre :</strong></dt>
   <dd><%= @generation.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
+  <dt><strong>Fecha Inicial:</strong></dt>
   <dd><%= @generation.start_date %></dd>
+  <dt><strong>Creado en:</strong></dt>
+  <dd><%= @generation.created_at.strftime("%d/%B/%Y %H:%M") %></dd>
+  <dt><strong>Actualziado en:</strong></dt>
+  <dd><%= @generation.updated_at.strftime("%d/%B/%Y %H:%M") %></dd>
 </dl>
 
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              generations_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_generation_path(@generation), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              generation_path(@generation),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>

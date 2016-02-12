@@ -43,6 +43,7 @@ class GenerationsController < ApplicationController
     @generation = Generation.find(params[:id])
 
     @generation.destroy
+    flash[:success] = "¡Generación elimininada exitosamente!"
     redirect_to generations_path
   end
 
