@@ -1,0 +1,18 @@
+<h3><%= "# Hackers: " + hackers.count.to_s %></h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th> ID </th>
+      <th> Name </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% hackers.each do |hacker| %>
+      <tr>
+        <td><%= link_to hacker.id, generation_hacker_path(generation, hacker) %></td>
+        <td><%= hacker.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

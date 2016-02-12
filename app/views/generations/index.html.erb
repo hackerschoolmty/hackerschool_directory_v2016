@@ -18,7 +18,7 @@
         <td><%= generation.name %></td>
         <td><%= generation.start_date.strftime("%d/%B/%Y") %></td>
         <td><%= link_to "Hackers", generation_hackers_path(generation), class: "btn-xs btn-primary" %></td>
-        <td><%= link_to "Cursos", generation_courses_path(generation), class: "btn-xs btn-primary" %></td>
+        <td><%= link_to "Cursos", generation_courses_path(generation), class: "btn-xs btn-success" %></td>
         <td>
           <%= link_to "Editar",
                       edit_generation_path(generation), :class => 'btn btn-default btn-xs' %>

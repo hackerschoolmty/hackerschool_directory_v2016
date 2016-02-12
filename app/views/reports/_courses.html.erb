@@ -1,0 +1,18 @@
+<h3><%= "# de Cursos: " + courses.count.to_s  %></h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th> ID </th>
+      <th> Name </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% courses.each do |course| %>
+      <tr>
+        <td><%= link_to course.id, generation_course_path(generation, course) %></td>
+        <td><%= course.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

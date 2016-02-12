@@ -1,0 +1,17 @@
+
+<% @generations.each do |generation| %>
+	<div class="highlight">
+
+		<h1><%= generation.name %></h3>
+		<hr/>
+		<% if generation.hackers.any? %>
+			<%= render 'hackers', hackers: generation.hackers, generation: generation %>
+		<% end %>
+		
+		<% if generation.courses.any? %>
+			<%= render 'courses', courses: generation.courses, generation: generation %>
+		<% end %>
+		
+	</div>
+	
+<% end %>
