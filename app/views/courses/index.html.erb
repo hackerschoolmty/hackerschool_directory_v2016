@@ -1,0 +1,39 @@
+
+<div class="page-header">
+  <h1>Courses</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th> ID </th>
+      <th> Curso </th>
+      <th> Generation </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td><%= course.id %></td>
+        <td><%= course.name %></td>
+        <td><%= course.generation.name %></td>
+        <td>
+           <%= link_to "Ver detalle",
+                      generation_course_path(@generation, course), :class => 'btn btn-default btn-xs' %>
+          <%= link_to "Editar",
+                      edit_generation_course_path(@generation, course), :class => 'btn btn-default btn-xs' %>
+
+          <%= link_to "Eliminar",
+                      generation_course_path(@generation, course),
+                      :method => :delete,
+                      :data => { :confirm => "¿Estás seguro de borrar este curso?" },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Nuevo Curso",
+            new_generation_course_path(@generation),
+            :class => 'btn btn-primary' %>

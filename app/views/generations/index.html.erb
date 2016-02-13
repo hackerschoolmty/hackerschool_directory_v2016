@@ -9,6 +9,7 @@
       <th> Nombre </th>
       <th> Fecha de Inicio </th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -17,6 +18,7 @@
         <td><%= link_to generation.id, generation_path(generation) %></td>
         <td><%= generation.name %></td>
         <td><%= generation.start_date %></td>
+        <td><%= link_to "Courses", generation_courses_path(generation), class: "btn-xs btn-primary" %></td>
         <td><%= link_to "Hackers", generation_hackers_path(generation), class: "btn-xs btn-primary" %></td>
         <td>
           <%= link_to "Editar",
