@@ -6,7 +6,6 @@ class HackersController < ApplicationController
   # GET /hackers.json
   def index
     @hackers = @generation.hackers
-    "hola"
   end
 
   # GET /hackers/1
