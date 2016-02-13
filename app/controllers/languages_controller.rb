@@ -1,4 +1,5 @@
 class LanguagesController < ApplicationController
+  skip_before_action :authenticate_hacker!, only: :index
 
   def index
     @lenguages = Language.all

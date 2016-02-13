@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :hackers
+  root "generations#index"
   get 'reports/general'
 
   resources :generations do
