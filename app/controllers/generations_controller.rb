@@ -47,6 +47,26 @@ class GenerationsController < ApplicationController
     redirect_to generations_path
   end
 
+  def activate
+    @generation = Generation.find(params[:id])
+    @generation.update_attribute(:status, "active")
+    flash[:success] = "¡Generación activada exitosamente!"
+    redirect_to generations_path
+  end
+
+  def deactivate
+    @generation = Generation.find(params[:id])
+    @generation.update_attribute(:status, "inactive")
+    flash[:success] = "¡Generación desactivada exitosamente!"
+    redirect_to generations_path
+  end
+
+  def activate_all
+    Generation.update_all({status: "active"})
+    flash[:success] = "¡Generaciones activadas exitosamente!"
+    redirect_to generations_path
+  end
+
   private
 
   def generation_params

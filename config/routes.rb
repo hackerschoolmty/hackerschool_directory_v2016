@@ -2,11 +2,16 @@ Rails.application.routes.draw do
   get 'reports/general'
 
   resources :generations do
+    put :activate, on: :member
+    put :deactivate, on: :member
+    put :activate_all, on: :collection
     resources :hackers
     resources :courses
   end
 
   resources :languages
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
