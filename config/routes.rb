@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :generations do
-    resources :hackers
+    resources :hackers do
+      resources :languages
+    end
     resources :courses
   end
   # The priority is based upon order of creation: first created -> highest priority.
