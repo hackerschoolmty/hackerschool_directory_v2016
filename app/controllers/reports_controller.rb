@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
   def general
-    @generations = Generation.all
+    @generations = Generation.includes(:hackers, :courses)
   end
 end
