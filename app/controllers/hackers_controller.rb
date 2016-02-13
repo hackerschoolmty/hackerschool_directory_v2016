@@ -77,6 +77,6 @@ class HackersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hacker_params
-      params.require(:hacker).permit(:name, :email, :generation_id)
+      params.require(:hacker).permit(:name, :email, :generation_id, language_ids: [])
     end
 end

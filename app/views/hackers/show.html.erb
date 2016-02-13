@@ -14,3 +14,11 @@
   <dt><strong>Actualizado en:</strong></dt>
   <dd><%= @hacker.updated_at.strftime("%d/%B/%Y %H:%M") %></dd>
 </dl>
+
+<h3>Lenguajes:</h3>
+<ul>
+  <% @hacker.languages.each do |language| %>
+    <li><%= language.name %></li>
+  <% end %>
+</ul>  
+
