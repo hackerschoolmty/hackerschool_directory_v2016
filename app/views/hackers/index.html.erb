@@ -8,6 +8,9 @@
       <th> ID </th>
       <th> Nombre </th>
       <th> Email </th>
+      <th> Github account </th>
+      <th> #Languages </th>
+
       <th></th>
     </tr>
   </thead>
@@ -17,6 +20,8 @@
         <td><%= link_to hacker.id, generation_hacker_path(@generation, hacker) %></td>
         <td><%= hacker.name %></td>
         <td><%= hacker.email %></td>
+        <td><%= hacker.github_account %></td>
+        <td><%= hacker.languages.count %></td>
         <td>
           <%= link_to "Editar",
                       edit_generation_hacker_path(@generation, hacker), :class => 'btn btn-default btn-xs' %>

@@ -26,5 +26,19 @@
   
 </div>
 <%=f.error_span(:email) %>
-
-
+<div class="form-group">
+  <%= f.label :github_account, :class => 'control-label col-lg-2' %>
+  <div class="col-lg-10">
+    <%= f.text_field :github_account, :class => 'form-control' %>
+  </div>
+  
+</div>
+<%=f.error_span(:github_account) %>
+<div class="form-group">
+  <%= f.label :language_ids, :class => 'control-label col-lg-2' %>
+  <div class="col-lg-10">
+    <%= f.collection_select :language_ids, Language.order(:name), :id, :name, {}, {multiple: true} %>
+  </div>
+  
+</div>
+<%=f.error_span(:language_ids) %>

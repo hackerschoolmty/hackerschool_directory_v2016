@@ -7,6 +7,8 @@
   <dd><%= @hacker.name %></dd>
   <dt><strong>Email:</strong></dt>
   <dd><%= @hacker.email %></dd>
+  <dt><strong>Github account:</strong></dt>
+  <dd><%= @hacker.github_account %></dd>
   <dt><strong>Generation:</strong></dt>
   <dd><%= @hacker.generation.name %></dd>
   <dt><strong>Creado en:</strong></dt>
@@ -14,3 +16,11 @@
   <dt><strong>Actualizado en:</strong></dt>
   <dd><%= @hacker.updated_at.strftime("%d/%B/%Y %H:%M") %></dd>
 </dl>
+
+<h2> <%= pluralize(@hacker.languages.count,"Language") %> <h2>
+
+<ul>
+  <%@hacker.languages.each do |language| %>
+  <li><%=language.name%></li>
+  <% end %>
+</ul>

@@ -47,6 +47,7 @@ class HackersController < ApplicationController
   # PATCH/PUT /hackers/1
   # PATCH/PUT /hackers/1.json
   def update
+    binding.pry
     @generation = Generation.find(params[:generation_id])
     @hacker = @generation.hackers.find(params[:id])
     respond_to do |format|
@@ -77,6 +78,6 @@ class HackersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hacker_params
-      params.require(:hacker).permit(:name, :email, :generation_id)
+      params.require(:hacker).permit(:name, :email, :generation_id, :github_account,language_ids: [])
     end
 end
