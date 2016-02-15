@@ -20,8 +20,8 @@ end
 
 	#Create hackers
 	3.times do
-		hacker = generation.hackers.create({name: Faker::Name.name, email: Faker::Internet.email, github_account: Faker::Internet.user_name})
-		
+		hacker = generation.hackers.create({name: Faker::Name.name, email: Faker::Internet.email, github_account: Faker::Internet.user_name, password: "password", password_confirmation: "password"})
+   
 		#Por qué esto no funciona?
 		#hacker.language_ids = Language.pluck(:id).shuffle[0..4]
 		
