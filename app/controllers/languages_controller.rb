@@ -3,50 +3,38 @@ class LanguagesController < ApplicationController
 
 
 	def index
-		@generation =  Generation.find(params[:generation_id])
-		@hacker = @generation.hacker.find(params[:hacker_id])
-		@languages = @hacker.languages
+		@languages = Language.all
 	end
 
 	def show
-		@generation =  Generation.find(params[:generation_id])
-		@hacker = @generation.hacker.find(params[:hacker_id])
-		@language = @hacker.languages.find(params[:id])
+		@language = Language.find(params[:id])
 	end
 
 	def new
-		@generation =  Generation.find(params[:generation_id])
-		@hacker = @generation.hacker.find(params[:hacker_id])
-		@language = @hacker.languages.build
+		@language = Language.new
 	end
 
 	def create
-		@generation =  Generation.find(params[:generation_id])
-		@hacker = @generation.hacker.find(params[:hacker_id])
-		@language = @hacker.languages.new(language_params)
+		@language = Language.new(language_params)
 
 		if @language.save
 			flash[:success] = "Language created successfully!!" 
-			redirect_to generation_hackers_languages_path
+			redirect_to languages_path
 		else
 			render :new
 		end
 	end
 
 	def edit
-		@generation =  Generation.find(params[:generation_id])
-		@hacker = @generation.hacker.find(params[:hacker_id])
-		@language = @hacker.languages.find(params[:id])
+		@language = Language.find(params[:id])
 	end
 
 	def update
-		@generation =  Generation.find(params[:generation_id])
-		@hacker = @generation.hacker.find(params[:hacker_id])
-		@language = @hacker.languages.find(params[:id])
+		@language = Language.find(params[:id])
 
 		if @language.update(language_params)
 			flash[:success] = "Language updated successfully!!" 
-			redirect_to generation_hackers_languages_path
+			redirect_to languages_path
 		else
 			render :edit
 		end
@@ -54,19 +42,17 @@ class LanguagesController < ApplicationController
 	end
 
 	def destroy
+		@language = Language.find(params[:id])
 
-		@generation =  Generation.find(params[:generation_id])
-		@hacker = @generation.hacker.find(params[:hacker_id])
-		@language = @hacker.languages.find(params[:id])
-
-		if @language.destroy
+		unless @language.nil?
+			@language.destroy
 			flash[:success] = "Language DESTROYED" 
 			
 		else
 			flash[:warning] = "Language does not want to be destroyed" 
 		end
 
-		redirect_to generation_hackers_languages_path
+		redirect_to languages_path
 	end
 
 	private

@@ -1,14 +1,14 @@
 <div class="page-header">
-  <h1><%= @course.name %></h1>
+  <h1><%= @language.name %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt><strong>Nombre:</strong></dt>
-  <dd><%= @course.name %></dd>
-  <dt><strong>Generation:</strong></dt>
-  <dd><%= @course.generation.name %></dd>
+  <dd><%= @language.name %></dd>
+  <dt><strong>Number of hackers:</strong></dt>
+  <dd><%= @language.hackers.count %></dd>
   <dt><strong>Creado en:</strong></dt>
-  <dd><%= @course.created_at.strftime("%d/%B/%Y %H:%M") %></dd>
+  <dd><%= @language.created_at.strftime("%d/%B/%Y %H:%M") %></dd>
   <dt><strong>Actualizado en:</strong></dt>
-  <dd><%= @course.updated_at.strftime("%d/%B/%Y %H:%M") %></dd>
+  <dd><%= @language.updated_at.strftime("%d/%B/%Y %H:%M") %></dd>
 </dl>

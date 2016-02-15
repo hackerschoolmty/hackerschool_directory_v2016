@@ -7,25 +7,25 @@
     <tr>
       <th> ID </th>
       <th> Language </th>
-      <th> Hacker </th>
+      <th> # Hackers </th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-    <% @languages.each do |course| %>
+    <% @languages.each do |language| %>
       <tr>
         <td><%= language.id %></td>
         <td><%= language.name %></td>
-        <td><%= language.hacker.name %></td>
+        <td><%= language.hackers.count %></td>
         <td>
            <%= link_to "Ver detalle",
-                      generation_hacker_language_path(@generation, @hacker,language), :class => 'btn btn-default btn-xs' %>
+                      language, :class => 'btn btn-default btn-xs' %>
           <%= link_to "Editar",
-                      edit_generation_hacker_language_path(@generation, @hacker,language), :class => 'btn btn-default btn-xs' %>
+                      edit_language_path(language), :class => 'btn btn-default btn-xs' %>
 
           <%# Deuda de código, solo tengo que desasociar el lenguaje del hacker%>
           <%= link_to "Eliminar",
-                      generation_hacker_language_path(@generation, @hacker,language),
+                      language_path(language),
                       :method => :delete,
                       :data => { :confirm => "¿Estás seguro de eliminar la asociación de este hacker con este lenguaje?" },
                       :class => 'btn btn-xs btn-danger' %>
@@ -35,6 +35,6 @@
   </tbody>
 </table>
 
-<%= link_to "Nuevo Curso",
-            new_generation_course_path(@generation),
+<%= link_to "Nuevo Lenguage",
+            new_language_path,
             :class => 'btn btn-primary' %>
