@@ -1,0 +1,22 @@
+ <h2> <%= pluralize(courses.count,'Course')%> </h2>
+
+<% if courses.any? %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th> ID </th>
+      <th> Curso </th>
+    </tr>
+  </thead>
+  <tbody>
+      <%courses.each do |course| %>
+
+      <tr>
+        <td><%= link_to course.id, generation_course_path(generation,course) %></td>
+        <td><%= course.name %></td>
+       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

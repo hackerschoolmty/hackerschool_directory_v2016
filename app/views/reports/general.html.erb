@@ -1,0 +1,11 @@
+<div class="page-header">
+  <h1><strong>General Report</strong></h1>
+  <h3><%= pluralize(@generations.count, "Generation") %> </h3>
+</div>
+<dl class="dl-horizontal">
+<% @generations.each do |generation| %>
+  <h1><strong><%=generation.name%></strong><h1>
+
+ 	<%= render 'courses', generation: generation, courses: generation.courses %>
+ 	<%= render 'hackers', generation: generation, hackers: generation.hackers %>
+ <%end%>
