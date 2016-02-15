@@ -26,7 +26,7 @@ gem 'jquery-ui-rails'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
-gem "pry"
+
 gem "devise"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -40,6 +40,8 @@ gem "devise"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem "pry"
+  gem 'faker', '~> 1.6', '>= 1.6.1'
 end
 
 group :development do
