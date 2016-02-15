@@ -47,7 +47,6 @@ class HackersController < ApplicationController
   # PATCH/PUT /hackers/1
   # PATCH/PUT /hackers/1.json
   def update
-    binding.pry
     @generation = Generation.find(params[:generation_id])
     @hacker = @generation.hackers.find(params[:id])
     respond_to do |format|

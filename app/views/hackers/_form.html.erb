@@ -37,7 +37,7 @@
 <div class="form-group">
   <%= f.label :language_ids, :class => 'control-label col-lg-2' %>
   <div class="col-lg-10">
-    <%= f.collection_select :language_ids, Language.order(:name), :id, :name, {}, {multiple: true} %>
+    <%= f.collection_select :language_ids, Language.order(:name), :id, :name, {}, {multiple: true, class: 'form-control'} %>
   </div>
   
 </div>
