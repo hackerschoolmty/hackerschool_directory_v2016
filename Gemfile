@@ -22,11 +22,11 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'jquery-ui-rails'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
-gem "pry"
+gem "select2-rails"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -39,6 +39,7 @@ gem "pry"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem "pry"
 end
 
 group :development do
