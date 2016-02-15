@@ -12,13 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require select2
 //= require twitter/bootstrap
-//= require jquery-ui/datepicker
 //= require turbolinks
 //= require_tree .
 
 $(document).ready(function(){
-	$(".datepicker").datepicker({
-		dateFormat: "yy-mm-dd"
+	$("select").select2({
+		theme: "bootstrap",
+		placeholder: "Select an option"
 	})
 })
