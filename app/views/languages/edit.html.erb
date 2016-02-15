@@ -1,0 +1,14 @@
+<div class="page-header">
+  <h1><%= @language.name %></h1>
+</div>
+
+<%= form_for [@language], html: { class: "form-horizontal generation" } do |f| %>
+	<%= render 'form', f: f %>
+
+	<div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit "Actualizar", class: 'btn btn-primary' %>
+      <%= link_to "Cancelar",  languages_path, class: 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>
