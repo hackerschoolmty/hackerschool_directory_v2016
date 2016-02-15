@@ -9,31 +9,24 @@
 #Seed languages
 10.times do
 
-	language = Language.create({name: Faker::Hacker.adjective})
+  language = Language.create({name: Faker::Hacker.adjective})
 
 end
 
 5.times do
 
-	#Create generation
-	generation = Generation.create({name: Faker::App.name, start_date: Faker::Date.backward(10)})
+  #Create generation
+  generation = Generation.create({name: Faker::App.name, start_date: Faker::Date.backward(10)})
 
-	#Create hackers
-	3.times do
-		hacker = generation.hackers.create({name: Faker::Name.name, email: Faker::Internet.email, github_account: Faker::Internet.user_name})
-		
-		#Por qué esto no funciona?
-		#hacker.language_ids = Language.pluck(:id).shuffle[0..4]
-		
-		#Y esto sí?
-		hacker.language_ids = Language.pluck(:id).shuffle[0..4]
+  #Create hackers
+  3.times do
+    hacker = generation.hackers.create({name: Faker::Name.name, email: Faker::Internet.email, github_account: Faker::Internet.user_name})
+    hacker.language_ids = Language.pluck(:id).shuffle[0..4]
 
-	end
+  end
 
-	#Create courses
-	5.times do
-		course = generation.courses.create({name: Faker::App.name})
-	end
-
-	
+  #Create courses
+  5.times do
+    course = generation.courses.create({name: Faker::App.name})
+  end
 end
